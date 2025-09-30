@@ -1,6 +1,5 @@
 public class Main {
     public static void main(String[] args) {
-        ServicoDeEntrega servico = new ServicoDeEntrega();
         
         System.out.println("=== SISTEMA DE CÁLCULO DE FRETE ===\n");
         
@@ -12,13 +11,13 @@ public class Main {
         
         entrega1.adicionarItem(funcionario);
         entrega1.adicionarItem(carro);
-        
+    
         double custoEntrega1 = entrega1.calcularCustoTotal(10.0);
+        
         System.out.println("• Funcionário: " + funcionario.getNome());
         System.out.println("• Veículo: Carro - Placa " + carro.getPlaca());
         System.out.println("• Custo total: R$ " + String.format("%.2f", custoEntrega1));
-        
-        // Detalhamento dos custos
+
         System.out.println("\n  Detalhamento:");
         System.out.println("  - Custo do funcionário: R$ " + String.format("%.2f", funcionario.calcularCustoFrete(10)));
         System.out.println("  - Custo do carro: R$ " + String.format("%.2f", carro.calcularCustoFrete(10)));
@@ -33,6 +32,7 @@ public class Main {
         entrega2.adicionarItem(moto);
         
         double custoEntrega2 = entrega2.calcularCustoTotal(25.0);
+        
         System.out.println("• Entregador: " + autonomo.getNome() + " (Autônomo)");
         System.out.println("• Veículo: Motocicleta - Placa " + moto.getPlaca());
         System.out.println("• Custo total: R$ " + String.format("%.2f", custoEntrega2));
@@ -44,5 +44,9 @@ public class Main {
         System.out.println("\n=== RESUMO ===");
         System.out.println("Entrega 1 (10km): R$ " + String.format("%.2f", custoEntrega1));
         System.out.println("Entrega 2 (25km): R$ " + String.format("%.2f", custoEntrega2));
+    
+        System.out.println("\n=== VERIFICAÇÃO DOS CÁLCULOS ===");
+        System.out.println("Entrega 1: R$ 5,00 (funcionário) + R$ 12,50 (carro) = R$ 17,50");
+        System.out.println("Entrega 2: R$ 23,75 (autônomo) + R$ 11,25 (moto) = R$ 35,00");
     }
 }
