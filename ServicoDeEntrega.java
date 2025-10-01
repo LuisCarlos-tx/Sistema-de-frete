@@ -2,23 +2,22 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ServicoDeEntrega {
-    private List<Fretavel> itensFretaveis;
-    
-    public ServicoDeEntrega() {
-        this.itensFretaveis = new ArrayList<>();
+    private List<Fretavel> itens = new ArrayList<>();
+    private double distancia;
+
+    public ServicoDeEntrega(double distancia) {
+        this.distancia = distancia;
     }
-    public void adicionarItem(Fretavel item) {
-        itensFretaveis.add(item);
+
+    public void adicionarItem(Fretavel f) {
+        itens.add(f);
     }
-    
-    public double calcularCustoTotal(double distanciaEmKm) {
-        double custoTotal = 0.0;
-        for (Fretavel item : itensFretaveis) {
-            custoTotal += item.calcularCustoFrete(distanciaEmKm);
+
+    public double calcularCustoTotal() {
+        double total = 0;
+        for (Fretavel f : itens) {
+            total += f.calcularCustoFrete(distancia);
         }
-        return custoTotal;
-    }
-    public void limparItens() {
-        itensFretaveis.clear();
+        return total;
     }
 }
